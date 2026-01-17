@@ -18,10 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RegistrationState {
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get isRegistered =>
-      throw _privateConstructorUsedError; // ✅ registration success flag
-  String? get errorMessage =>
-      throw _privateConstructorUsedError; // ✅ error message for UI
+  bool get isRegistered => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
   bool get obscurePassword => throw _privateConstructorUsedError;
   bool get obscureConfirmPassword => throw _privateConstructorUsedError;
 
@@ -177,10 +175,8 @@ class _$RegistrationStateImpl implements _RegistrationState {
   final bool isLoading;
   @override
   final bool isRegistered;
-  // ✅ registration success flag
   @override
   final String? errorMessage;
-  // ✅ error message for UI
   @override
   final bool obscurePassword;
   @override
@@ -242,9 +238,9 @@ abstract class _RegistrationState implements RegistrationState {
   @override
   bool get isLoading;
   @override
-  bool get isRegistered; // ✅ registration success flag
+  bool get isRegistered;
   @override
-  String? get errorMessage; // ✅ error message for UI
+  String? get errorMessage;
   @override
   bool get obscurePassword;
   @override

@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_flight_booking_app/presentation/auth/login/page/login_Screen.dart';
 import 'package:my_flight_booking_app/presentation/auth/registration/bloc/registration_bloc.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/input_textfield.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/password_textfield.dart';
+import 'package:my_flight_booking_app/presentation/home/home.dart';
 import 'package:my_flight_booking_app/utils/color_manager.dart';
 
-class RegisterScreen extends StatelessWidget {
-  RegisterScreen({super.key});
+class RegistrationScreen extends StatelessWidget {
+  RegistrationScreen({super.key});
 
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
@@ -38,6 +40,11 @@ class RegisterScreen extends StatelessWidget {
                 content: const Text("Registration successful!"),
                 backgroundColor: ColorManager.primary,
               ),
+            );
+
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+              (route) => false,
             );
           }
         },
@@ -183,7 +190,6 @@ class RegisterScreen extends StatelessWidget {
                   BlocBuilder<RegistrationBloc, RegistrationState>(
                     builder: (context, state) {
                       return SizedBox(
-                        height: 50.h,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -206,8 +212,11 @@ class RegisterScreen extends StatelessWidget {
                                   }
                                 },
                           child: state.isLoading
-                              ? CircularProgressIndicator(
-                                  color: ColorManager.white,
+                              ? Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CircularProgressIndicator(
+                                    color: ColorManager.white,
+                                  ),
                                 )
                               : Text(
                                   "Register",
@@ -226,7 +235,9 @@ class RegisterScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: TextButton(
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () => Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      ),
                       child: RichText(
                         text: TextSpan(
                           text: "Already have an account? ",
@@ -257,5 +268,3 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
-
-// ====================== Reusable Widgets ======================

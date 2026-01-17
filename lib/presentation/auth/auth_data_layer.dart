@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:my_flight_booking_app/core/error/api_failures.dart';
 import 'package:my_flight_booking_app/core/error/failure_handler.dart';
 import 'package:my_flight_booking_app/presentation/auth/auth_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthDataLayer {
   final AuthRepository _authRepository;
@@ -17,7 +18,6 @@ class AuthDataLayer {
     required String phone,
   }) async {
     try {
-      // Store repository response
       final bool isRegistered = await _authRepository.registerUser(
         name: name,
         email: email,
@@ -25,7 +25,6 @@ class AuthDataLayer {
         phone: phone,
       );
 
-      // Check result
       if (isRegistered) {
         return const Right(true);
       } else {

@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_flight_booking_app/presentation/auth/login/bloc/login_bloc.dart';
 
 import 'package:my_flight_booking_app/presentation/auth/login/page/login_screen.dart';
 import 'package:my_flight_booking_app/presentation/auth/registration/bloc/registration_bloc.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
             BlocProvider<RegistrationBloc>(
               create: (context) => RegistrationBloc(),
             ),
+            BlocProvider<LoginBloc>(create: (context) => LoginBloc()),
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: RegisterScreen(), // or LoginScreen()
+            home: LoginScreen(),
           ),
         );
       },

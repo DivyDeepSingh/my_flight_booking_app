@@ -4,8 +4,8 @@ part of 'registration_bloc.dart';
 class RegistrationState with _$RegistrationState {
   factory RegistrationState({
     required bool isLoading,
-    required bool isRegistered, // ✅ registration success flag
-    String? errorMessage, // ✅ error message for UI
+    required bool isRegistered,
+    String? errorMessage,
 
     required bool obscurePassword,
     required bool obscureConfirmPassword,
