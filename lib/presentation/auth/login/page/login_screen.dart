@@ -6,6 +6,7 @@ import 'package:my_flight_booking_app/presentation/auth/login/bloc/login_bloc.da
 import 'package:my_flight_booking_app/presentation/auth/registration/registration_screen.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/input_textfield.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/password_textfield.dart';
+import 'package:my_flight_booking_app/presentation/home/home.dart';
 import 'package:my_flight_booking_app/utils/color_manager.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -21,23 +22,19 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: ColorManager.background,
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
-          if (state.errorMessage != null) {
+          if (state.successOrFailue != null) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(state.errorMessage!),
+                content: Text(state.successOrFailue!),
                 backgroundColor: ColorManager.error,
               ),
             );
           }
-
           if (state.isLoggedIn) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Login successful!"),
-                backgroundColor: ColorManager.primary,
-              ),
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (_) => HomeScreen()),
+              (route) => false,
             );
-            // Navigate to home page here if needed
           }
         },
         child: SafeArea(

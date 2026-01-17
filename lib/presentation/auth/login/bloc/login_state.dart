@@ -6,13 +6,13 @@ class LoginState with _$LoginState {
     required bool isLoading,
     required bool isLoggedIn,
     required bool obscurePassword,
-    String? errorMessage,
+    String? successOrFailue,
   }) = _LoginState;
 
   factory LoginState.initial() => LoginState(
     isLoading: false,
     isLoggedIn: false,
     obscurePassword: true,
-    errorMessage: null,
+    successOrFailue: null,
   );
 }

@@ -20,7 +20,7 @@ mixin _$LoginState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isLoggedIn => throw _privateConstructorUsedError;
   bool get obscurePassword => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
+  String? get successOrFailue => throw _privateConstructorUsedError;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -40,7 +40,7 @@ abstract class $LoginStateCopyWith<$Res> {
     bool isLoading,
     bool isLoggedIn,
     bool obscurePassword,
-    String? errorMessage,
+    String? successOrFailue,
   });
 }
 
@@ -62,7 +62,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? isLoading = null,
     Object? isLoggedIn = null,
     Object? obscurePassword = null,
-    Object? errorMessage = freezed,
+    Object? successOrFailue = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -78,9 +78,9 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
                 ? _value.obscurePassword
                 : obscurePassword // ignore: cast_nullable_to_non_nullable
                       as bool,
-            errorMessage: freezed == errorMessage
-                ? _value.errorMessage
-                : errorMessage // ignore: cast_nullable_to_non_nullable
+            successOrFailue: freezed == successOrFailue
+                ? _value.successOrFailue
+                : successOrFailue // ignore: cast_nullable_to_non_nullable
                       as String?,
           )
           as $Val,
@@ -101,7 +101,7 @@ abstract class _$$LoginStateImplCopyWith<$Res>
     bool isLoading,
     bool isLoggedIn,
     bool obscurePassword,
-    String? errorMessage,
+    String? successOrFailue,
   });
 }
 
@@ -122,7 +122,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? isLoggedIn = null,
     Object? obscurePassword = null,
-    Object? errorMessage = freezed,
+    Object? successOrFailue = freezed,
   }) {
     return _then(
       _$LoginStateImpl(
@@ -138,9 +138,9 @@ class __$$LoginStateImplCopyWithImpl<$Res>
             ? _value.obscurePassword
             : obscurePassword // ignore: cast_nullable_to_non_nullable
                   as bool,
-        errorMessage: freezed == errorMessage
-            ? _value.errorMessage
-            : errorMessage // ignore: cast_nullable_to_non_nullable
+        successOrFailue: freezed == successOrFailue
+            ? _value.successOrFailue
+            : successOrFailue // ignore: cast_nullable_to_non_nullable
                   as String?,
       ),
     );
@@ -154,7 +154,7 @@ class _$LoginStateImpl implements _LoginState {
     required this.isLoading,
     required this.isLoggedIn,
     required this.obscurePassword,
-    this.errorMessage,
+    this.successOrFailue,
   });
 
   @override
@@ -164,11 +164,11 @@ class _$LoginStateImpl implements _LoginState {
   @override
   final bool obscurePassword;
   @override
-  final String? errorMessage;
+  final String? successOrFailue;
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading, isLoggedIn: $isLoggedIn, obscurePassword: $obscurePassword, errorMessage: $errorMessage)';
+    return 'LoginState(isLoading: $isLoading, isLoggedIn: $isLoggedIn, obscurePassword: $obscurePassword, successOrFailue: $successOrFailue)';
   }
 
   @override
@@ -182,8 +182,8 @@ class _$LoginStateImpl implements _LoginState {
                 other.isLoggedIn == isLoggedIn) &&
             (identical(other.obscurePassword, obscurePassword) ||
                 other.obscurePassword == obscurePassword) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+            (identical(other.successOrFailue, successOrFailue) ||
+                other.successOrFailue == successOrFailue));
   }
 
   @override
@@ -192,7 +192,7 @@ class _$LoginStateImpl implements _LoginState {
     isLoading,
     isLoggedIn,
     obscurePassword,
-    errorMessage,
+    successOrFailue,
   );
 
   /// Create a copy of LoginState
@@ -209,7 +209,7 @@ abstract class _LoginState implements LoginState {
     required final bool isLoading,
     required final bool isLoggedIn,
     required final bool obscurePassword,
-    final String? errorMessage,
+    final String? successOrFailue,
   }) = _$LoginStateImpl;
 
   @override
@@ -219,7 +219,7 @@ abstract class _LoginState implements LoginState {
   @override
   bool get obscurePassword;
   @override
-  String? get errorMessage;
+  String? get successOrFailue;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.

@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
             BlocProvider<RegistrationBloc>(
               create: (context) => RegistrationBloc(),
             ),
-            BlocProvider<LoginBloc>(create: (context) => LoginBloc()),
+            BlocProvider<LoginBloc>(
+              create: (context) => LoginBloc()..add(InitialLoginEvent()),
+            ),
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
