@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "394932695903",
+    "project_id": "my-flight-booking-app",
+    "storage_bucket": "my-flight-booking-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394932695903:android:93b33b526570e90a833cea",
+        "android_client_info": {
+          "package_name": "com.example.my_flight_booking_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX-nSCp3BzJb3V5cLlRmWF16seEeBA034"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

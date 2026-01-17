@@ -4,8 +4,12 @@ import 'package:my_flight_booking_app/core/error/failure_handler.dart';
 import 'package:my_flight_booking_app/presentation/auth/auth_repository.dart';
 
 class AuthDataLayer {
-  final AuthRepository _authRepository = AuthRepository();
+  final AuthRepository _authRepository;
 
+  AuthDataLayer({AuthRepository? authRepository})
+    : _authRepository = authRepository ?? AuthRepository();
+
+  /// Registers a new user
   Future<Either<ApiFailure, bool>> registerUser({
     required String name,
     required String email,
@@ -13,27 +17,45 @@ class AuthDataLayer {
     required String phone,
   }) async {
     try {
-      await _authRepository.registerUser(
+      // Store repository response
+      final bool isRegistered = await _authRepository.registerUser(
         name: name,
         email: email,
         password: password,
         phone: phone,
       );
-      return Right(true);
-    } catch (e) {
-      return Left(FailureHandler.handleFailure(e));
+
+      // Check result
+      if (isRegistered) {
+        return const Right(true);
+      } else {
+        return Left(ApiFailure.other("Registration failed"));
+      }
+    } catch (error) {
+      final failure = FailureHandler.handleFailure(error);
+      return Left(failure);
     }
   }
 
+  /// Logs in an existing user
   Future<Either<ApiFailure, bool>> loginUser({
     required String email,
     required String password,
   }) async {
     try {
-      await _authRepository.loginUser(email: email, password: password);
-      return Right(true);
-    } catch (e) {
-      return Left(FailureHandler.handleFailure(e));
+      final bool isLoggedIn = await _authRepository.loginUser(
+        email: email,
+        password: password,
+      );
+
+      if (isLoggedIn) {
+        return const Right(true);
+      } else {
+        return Left(ApiFailure.other("Login failed"));
+      }
+    } catch (error) {
+      final failure = FailureHandler.handleFailure(error);
+      return Left(failure);
     }
   }
 }

@@ -11,33 +11,43 @@ class FailureHandler {
     switch (error.runtimeType) {
       case MockException:
         return ApiFailure.other((error as MockException).message);
+
       case CacheException:
         return ApiFailure.other((error as CacheException).message);
+
       case ServerException:
         final message = (error as ServerException).message;
         return ApiFailure.serverError(message);
+
       case SocketException:
         return ApiFailure.poorConnection();
+
       case TimeoutException:
         return const ApiFailure.serverTimeout();
+
       case PlatformException:
         return ApiFailure.other('${(error as PlatformException).message}');
+
       case OtherException:
         return ApiFailure.other((error as OtherException).message);
+
       case FirebaseAuthException:
         final e = error as FirebaseAuthException;
         switch (e.code) {
           case 'email-already-in-use':
-            return ApiFailure.other("Ye email already use me hai");
+            return ApiFailure.other("This email is already in use");
           case 'weak-password':
-            return ApiFailure.other("Password bahut weak hai");
+            return ApiFailure.other("The password is too weak");
           case 'user-not-found':
-            return ApiFailure.other("User nahi mila");
+            return ApiFailure.other("No user found with this email");
           case 'wrong-password':
-            return ApiFailure.other("Password galat hai");
+            return ApiFailure.other("Incorrect password");
           default:
-            return ApiFailure.other(e.message ?? "Firebase Auth error");
+            return ApiFailure.other(
+              e.message ?? "Firebase Authentication error",
+            );
         }
+
       case FirebaseException:
         return ApiFailure.serverError(
           (error as FirebaseException).message ?? "Firebase error",
