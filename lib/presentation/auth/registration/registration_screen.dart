@@ -6,6 +6,7 @@ import 'package:my_flight_booking_app/presentation/auth/login/page/login_Screen.
 import 'package:my_flight_booking_app/presentation/auth/registration/bloc/registration_bloc.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/input_textfield.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/password_textfield.dart';
+import 'package:my_flight_booking_app/presentation/chat_group/bloc/chat_group_bloc.dart';
 import 'package:my_flight_booking_app/presentation/home/home.dart';
 import 'package:my_flight_booking_app/utils/color_manager.dart';
 
@@ -35,6 +36,12 @@ class RegistrationScreen extends StatelessWidget {
           }
 
           if (state.isRegistered) {
+            BlocProvider.of<ChatGroupBloc>(
+              context,
+            ).add(OnInitialChatGroupEvent());
+
+            BlocProvider.of<ChatGroupBloc>(context).add(OnLoadAllUsersEvent());
+
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: const Text("Registration successful!"),

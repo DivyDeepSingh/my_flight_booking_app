@@ -12,8 +12,7 @@ part of 'registration_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RegistrationState {
@@ -23,9 +22,7 @@ mixin _$RegistrationState {
   bool get obscurePassword => throw _privateConstructorUsedError;
   bool get obscureConfirmPassword => throw _privateConstructorUsedError;
 
-  /// Create a copy of RegistrationState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $RegistrationStateCopyWith<RegistrationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -33,17 +30,15 @@ mixin _$RegistrationState {
 /// @nodoc
 abstract class $RegistrationStateCopyWith<$Res> {
   factory $RegistrationStateCopyWith(
-    RegistrationState value,
-    $Res Function(RegistrationState) then,
-  ) = _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
+          RegistrationState value, $Res Function(RegistrationState) then) =
+      _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
   @useResult
-  $Res call({
-    bool isLoading,
-    bool isRegistered,
-    String? errorMessage,
-    bool obscurePassword,
-    bool obscureConfirmPassword,
-  });
+  $Res call(
+      {bool isLoading,
+      bool isRegistered,
+      String? errorMessage,
+      bool obscurePassword,
+      bool obscureConfirmPassword});
 }
 
 /// @nodoc
@@ -56,8 +51,6 @@ class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of RegistrationState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,63 +60,55 @@ class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
     Object? obscurePassword = null,
     Object? obscureConfirmPassword = null,
   }) {
-    return _then(
-      _value.copyWith(
-            isLoading: null == isLoading
-                ? _value.isLoading
-                : isLoading // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            isRegistered: null == isRegistered
-                ? _value.isRegistered
-                : isRegistered // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            errorMessage: freezed == errorMessage
-                ? _value.errorMessage
-                : errorMessage // ignore: cast_nullable_to_non_nullable
-                      as String?,
-            obscurePassword: null == obscurePassword
-                ? _value.obscurePassword
-                : obscurePassword // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            obscureConfirmPassword: null == obscureConfirmPassword
-                ? _value.obscureConfirmPassword
-                : obscureConfirmPassword // ignore: cast_nullable_to_non_nullable
-                      as bool,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRegistered: null == isRegistered
+          ? _value.isRegistered
+          : isRegistered // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      obscurePassword: null == obscurePassword
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscureConfirmPassword: null == obscureConfirmPassword
+          ? _value.obscureConfirmPassword
+          : obscureConfirmPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$RegistrationStateImplCopyWith<$Res>
     implements $RegistrationStateCopyWith<$Res> {
-  factory _$$RegistrationStateImplCopyWith(
-    _$RegistrationStateImpl value,
-    $Res Function(_$RegistrationStateImpl) then,
-  ) = __$$RegistrationStateImplCopyWithImpl<$Res>;
+  factory _$$RegistrationStateImplCopyWith(_$RegistrationStateImpl value,
+          $Res Function(_$RegistrationStateImpl) then) =
+      __$$RegistrationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool isLoading,
-    bool isRegistered,
-    String? errorMessage,
-    bool obscurePassword,
-    bool obscureConfirmPassword,
-  });
+  $Res call(
+      {bool isLoading,
+      bool isRegistered,
+      String? errorMessage,
+      bool obscurePassword,
+      bool obscureConfirmPassword});
 }
 
 /// @nodoc
 class __$$RegistrationStateImplCopyWithImpl<$Res>
     extends _$RegistrationStateCopyWithImpl<$Res, _$RegistrationStateImpl>
     implements _$$RegistrationStateImplCopyWith<$Res> {
-  __$$RegistrationStateImplCopyWithImpl(
-    _$RegistrationStateImpl _value,
-    $Res Function(_$RegistrationStateImpl) _then,
-  ) : super(_value, _then);
+  __$$RegistrationStateImplCopyWithImpl(_$RegistrationStateImpl _value,
+      $Res Function(_$RegistrationStateImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of RegistrationState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,43 +118,40 @@ class __$$RegistrationStateImplCopyWithImpl<$Res>
     Object? obscurePassword = null,
     Object? obscureConfirmPassword = null,
   }) {
-    return _then(
-      _$RegistrationStateImpl(
-        isLoading: null == isLoading
-            ? _value.isLoading
-            : isLoading // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        isRegistered: null == isRegistered
-            ? _value.isRegistered
-            : isRegistered // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        errorMessage: freezed == errorMessage
-            ? _value.errorMessage
-            : errorMessage // ignore: cast_nullable_to_non_nullable
-                  as String?,
-        obscurePassword: null == obscurePassword
-            ? _value.obscurePassword
-            : obscurePassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        obscureConfirmPassword: null == obscureConfirmPassword
-            ? _value.obscureConfirmPassword
-            : obscureConfirmPassword // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
+    return _then(_$RegistrationStateImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRegistered: null == isRegistered
+          ? _value.isRegistered
+          : isRegistered // ignore: cast_nullable_to_non_nullable
+              as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      obscurePassword: null == obscurePassword
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscureConfirmPassword: null == obscureConfirmPassword
+          ? _value.obscureConfirmPassword
+          : obscureConfirmPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$RegistrationStateImpl implements _RegistrationState {
-  _$RegistrationStateImpl({
-    required this.isLoading,
-    required this.isRegistered,
-    this.errorMessage,
-    required this.obscurePassword,
-    required this.obscureConfirmPassword,
-  });
+  _$RegistrationStateImpl(
+      {required this.isLoading,
+      required this.isRegistered,
+      this.errorMessage,
+      required this.obscurePassword,
+      required this.obscureConfirmPassword});
 
   @override
   final bool isLoading;
@@ -205,35 +187,24 @@ class _$RegistrationStateImpl implements _RegistrationState {
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    isLoading,
-    isRegistered,
-    errorMessage,
-    obscurePassword,
-    obscureConfirmPassword,
-  );
+  int get hashCode => Object.hash(runtimeType, isLoading, isRegistered,
+      errorMessage, obscurePassword, obscureConfirmPassword);
 
-  /// Create a copy of RegistrationState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RegistrationStateImplCopyWith<_$RegistrationStateImpl> get copyWith =>
       __$$RegistrationStateImplCopyWithImpl<_$RegistrationStateImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 }
 
 abstract class _RegistrationState implements RegistrationState {
-  factory _RegistrationState({
-    required final bool isLoading,
-    required final bool isRegistered,
-    final String? errorMessage,
-    required final bool obscurePassword,
-    required final bool obscureConfirmPassword,
-  }) = _$RegistrationStateImpl;
+  factory _RegistrationState(
+      {required final bool isLoading,
+      required final bool isRegistered,
+      final String? errorMessage,
+      required final bool obscurePassword,
+      required final bool obscureConfirmPassword}) = _$RegistrationStateImpl;
 
   @override
   bool get isLoading;
@@ -245,11 +216,8 @@ abstract class _RegistrationState implements RegistrationState {
   bool get obscurePassword;
   @override
   bool get obscureConfirmPassword;
-
-  /// Create a copy of RegistrationState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$RegistrationStateImplCopyWith<_$RegistrationStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_flight_booking_app/core/error/api_failures.dart';
 import 'package:my_flight_booking_app/core/error/failure_handler.dart';

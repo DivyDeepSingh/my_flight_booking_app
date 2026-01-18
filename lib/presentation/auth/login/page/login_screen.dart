@@ -6,6 +6,7 @@ import 'package:my_flight_booking_app/presentation/auth/login/bloc/login_bloc.da
 import 'package:my_flight_booking_app/presentation/auth/registration/registration_screen.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/input_textfield.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/password_textfield.dart';
+import 'package:my_flight_booking_app/presentation/chat_group/bloc/chat_group_bloc.dart';
 import 'package:my_flight_booking_app/presentation/home/home.dart';
 import 'package:my_flight_booking_app/utils/color_manager.dart';
 
@@ -31,6 +32,12 @@ class LoginScreen extends StatelessWidget {
             );
           }
           if (state.isLoggedIn) {
+            BlocProvider.of<ChatGroupBloc>(
+              context,
+            ).add(OnInitialChatGroupEvent());
+
+            BlocProvider.of<ChatGroupBloc>(context).add(OnLoadAllUsersEvent());
+
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(builder: (_) => HomeScreen()),
               (route) => false,

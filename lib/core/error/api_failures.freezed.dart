@@ -12,8 +12,7 @@ part of 'api_failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ApiFailure {
@@ -23,14 +22,16 @@ mixin _$ApiFailure {
     required TResult Function(String message) serverError,
     required TResult Function() poorConnection,
     required TResult Function() serverTimeout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? other,
     TResult? Function(String message)? serverError,
     TResult? Function()? poorConnection,
     TResult? Function()? serverTimeout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? other,
@@ -38,21 +39,24 @@ mixin _$ApiFailure {
     TResult Function()? poorConnection,
     TResult Function()? serverTimeout,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Other value) other,
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_PoorConnection value) poorConnection,
     required TResult Function(_ServerTimeout value) serverTimeout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Other value)? other,
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_PoorConnection value)? poorConnection,
     TResult? Function(_ServerTimeout value)? serverTimeout,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Other value)? other,
@@ -60,15 +64,15 @@ mixin _$ApiFailure {
     TResult Function(_PoorConnection value)? poorConnection,
     TResult Function(_ServerTimeout value)? serverTimeout,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ApiFailureCopyWith<$Res> {
   factory $ApiFailureCopyWith(
-    ApiFailure value,
-    $Res Function(ApiFailure) then,
-  ) = _$ApiFailureCopyWithImpl<$Res, ApiFailure>;
+          ApiFailure value, $Res Function(ApiFailure) then) =
+      _$ApiFailureCopyWithImpl<$Res, ApiFailure>;
 }
 
 /// @nodoc
@@ -80,17 +84,13 @@ class _$ApiFailureCopyWithImpl<$Res, $Val extends ApiFailure>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$OtherImplCopyWith<$Res> {
   factory _$$OtherImplCopyWith(
-    _$OtherImpl value,
-    $Res Function(_$OtherImpl) then,
-  ) = __$$OtherImplCopyWithImpl<$Res>;
+          _$OtherImpl value, $Res Function(_$OtherImpl) then) =
+      __$$OtherImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -100,23 +100,20 @@ class __$$OtherImplCopyWithImpl<$Res>
     extends _$ApiFailureCopyWithImpl<$Res, _$OtherImpl>
     implements _$$OtherImplCopyWith<$Res> {
   __$$OtherImplCopyWithImpl(
-    _$OtherImpl _value,
-    $Res Function(_$OtherImpl) _then,
-  ) : super(_value, _then);
+      _$OtherImpl _value, $Res Function(_$OtherImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$OtherImpl(
-        null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$OtherImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -144,9 +141,7 @@ class _$OtherImpl implements _Other {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
@@ -231,10 +226,7 @@ abstract class _Other implements ApiFailure {
   const factory _Other(final String message) = _$OtherImpl;
 
   String get message;
-
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$OtherImplCopyWith<_$OtherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -242,9 +234,8 @@ abstract class _Other implements ApiFailure {
 /// @nodoc
 abstract class _$$ServerErrorImplCopyWith<$Res> {
   factory _$$ServerErrorImplCopyWith(
-    _$ServerErrorImpl value,
-    $Res Function(_$ServerErrorImpl) then,
-  ) = __$$ServerErrorImplCopyWithImpl<$Res>;
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -254,23 +245,20 @@ class __$$ServerErrorImplCopyWithImpl<$Res>
     extends _$ApiFailureCopyWithImpl<$Res, _$ServerErrorImpl>
     implements _$$ServerErrorImplCopyWith<$Res> {
   __$$ServerErrorImplCopyWithImpl(
-    _$ServerErrorImpl _value,
-    $Res Function(_$ServerErrorImpl) _then,
-  ) : super(_value, _then);
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$ServerErrorImpl(
-        null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ServerErrorImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -298,9 +286,7 @@ class _$ServerErrorImpl implements _ServerError {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
@@ -385,20 +371,16 @@ abstract class _ServerError implements ApiFailure {
   const factory _ServerError(final String message) = _$ServerErrorImpl;
 
   String get message;
-
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$PoorConnectionImplCopyWith<$Res> {
-  factory _$$PoorConnectionImplCopyWith(
-    _$PoorConnectionImpl value,
-    $Res Function(_$PoorConnectionImpl) then,
-  ) = __$$PoorConnectionImplCopyWithImpl<$Res>;
+  factory _$$PoorConnectionImplCopyWith(_$PoorConnectionImpl value,
+          $Res Function(_$PoorConnectionImpl) then) =
+      __$$PoorConnectionImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -406,12 +388,8 @@ class __$$PoorConnectionImplCopyWithImpl<$Res>
     extends _$ApiFailureCopyWithImpl<$Res, _$PoorConnectionImpl>
     implements _$$PoorConnectionImplCopyWith<$Res> {
   __$$PoorConnectionImplCopyWithImpl(
-    _$PoorConnectionImpl _value,
-    $Res Function(_$PoorConnectionImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
+      _$PoorConnectionImpl _value, $Res Function(_$PoorConnectionImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -515,9 +493,8 @@ abstract class _PoorConnection implements ApiFailure {
 /// @nodoc
 abstract class _$$ServerTimeoutImplCopyWith<$Res> {
   factory _$$ServerTimeoutImplCopyWith(
-    _$ServerTimeoutImpl value,
-    $Res Function(_$ServerTimeoutImpl) then,
-  ) = __$$ServerTimeoutImplCopyWithImpl<$Res>;
+          _$ServerTimeoutImpl value, $Res Function(_$ServerTimeoutImpl) then) =
+      __$$ServerTimeoutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -525,12 +502,8 @@ class __$$ServerTimeoutImplCopyWithImpl<$Res>
     extends _$ApiFailureCopyWithImpl<$Res, _$ServerTimeoutImpl>
     implements _$$ServerTimeoutImplCopyWith<$Res> {
   __$$ServerTimeoutImplCopyWithImpl(
-    _$ServerTimeoutImpl _value,
-    $Res Function(_$ServerTimeoutImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of ApiFailure
-  /// with the given fields replaced by the non-null parameter values.
+      _$ServerTimeoutImpl _value, $Res Function(_$ServerTimeoutImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
