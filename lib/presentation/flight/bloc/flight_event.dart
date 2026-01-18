@@ -42,3 +42,17 @@ class SelectDateEvent extends FlightEvent {
   final DateTime date;
   SelectDateEvent(this.date);
 }
+
+class BookFlightEvent extends FlightEvent {
+  final FlightModel flight;
+  const BookFlightEvent({required this.flight});
+}
+
+class DeleteFlightEvent extends FlightEvent {
+  final FlightModel flight;
+  const DeleteFlightEvent({required this.flight});
+}
+
+class MyBookedFlightsEvent extends FlightEvent {
+  const MyBookedFlightsEvent();
+}

@@ -18,6 +18,7 @@ class GroupListTile extends StatelessWidget {
         BlocProvider.of<ChatGroupBloc>(
           context,
         ).add(LoadGroupMessagesEvent(groupId: groupModel.id!));
+        BlocProvider.of<ChatGroupBloc>(context).add(OnLoadAllUsersEvent());
 
         Navigator.push(
           context,

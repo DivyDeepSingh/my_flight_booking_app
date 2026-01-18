@@ -14,9 +14,13 @@ class FlightState with _$FlightState {
     selectedToCity, // Selected "To" city (CityModel for more details)
     DateTime? selectedDate, // Selected date for flight search
     List<FlightModel>? searchResults, // Flight search results
-    String? fromCityError, // Error message for "From" city search
-    String? toCityError, // Error message for "To" city search
-    String? searchError, // General error message for search
+
+    List<FlightModel>? myBookedFlights, // Flight search results
+    required bool isBookingSuccessful,
+    String? fromCityError,
+    String? toCityError,
+    String? searchError,
+    String? bookingError,
   }) = _FlightState;
 
   factory FlightState.initial() => FlightState(
@@ -24,6 +28,7 @@ class FlightState with _$FlightState {
     allCities: [],
     filteredFromCities: [],
     filteredToCities: [],
+    myBookedFlights: [],
     selectedFromCity: null,
     selectedToCity: null,
     selectedDate: null,
@@ -31,5 +36,6 @@ class FlightState with _$FlightState {
     fromCityError: null,
     toCityError: null,
     searchError: null,
+    isBookingSuccessful: false,
   );
 }

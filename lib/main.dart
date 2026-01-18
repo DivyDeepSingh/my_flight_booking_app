@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:my_flight_booking_app/models/flight/flight_model.dart';
 import 'package:my_flight_booking_app/models/message_model.dart';
 import 'package:my_flight_booking_app/presentation/auth/auth_repository.dart';
 import 'package:my_flight_booking_app/presentation/auth/login/bloc/login_bloc.dart';
@@ -26,6 +27,8 @@ void main() async {
   await Firebase.initializeApp();
 
   Hive.registerAdapter(MessageModelAdapter());
+
+  Hive.registerAdapter(FlightModelAdapter());
 
   runApp(const MyApp());
 }

@@ -140,5 +140,65 @@ class FlightBloc extends Bloc<FlightEvent, FlightState> {
         },
       );
     });
+
+    on<MyBookedFlightsEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true, isBookingSuccessful: false));
+      final result = await dataLayer.getAllFlights();
+
+      result.fold(
+        (failure) {
+          emit(
+            state.copyWith(
+              isLoading: false,
+              bookingError: failure.failureMessage,
+            ),
+          );
+        },
+        (flights) {
+          emit(state.copyWith(isLoading: false, myBookedFlights: flights));
+        },
+      );
+    });
+
+    on<BookFlightEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      final result = await dataLayer.saveFlight(event.flight);
+
+      result.fold(
+        (failure) {
+          emit(
+            state.copyWith(
+              isLoading: false,
+              bookingError: failure.failureMessage,
+              isBookingSuccessful: false,
+            ),
+          );
+        },
+        (_) {
+          emit(state.copyWith(isLoading: false, isBookingSuccessful: true));
+        },
+      );
+    });
+
+    on<DeleteFlightEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      final result = await dataLayer.deleteFlight(event.flight.id);
+
+      result.fold(
+        (failure) {
+          emit(
+            state.copyWith(
+              isLoading: false,
+              bookingError: failure.failureMessage,
+            ),
+          );
+        },
+        (_) {
+          add(MyBookedFlightsEvent());
+
+          emit(state.copyWith(isLoading: false));
+        },
+      );
+    });
   }
 }

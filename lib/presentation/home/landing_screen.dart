@@ -6,6 +6,7 @@ import 'package:my_flight_booking_app/presentation/auth/login/bloc/login_bloc.da
 import 'package:my_flight_booking_app/presentation/auth/login/page/login_screen.dart';
 import 'package:my_flight_booking_app/presentation/chat_group/page/group_listing/groups_listing.dart';
 import 'package:my_flight_booking_app/presentation/flight/bloc/flight_bloc.dart';
+import 'package:my_flight_booking_app/presentation/flight/page/flight_booking/my_booked_flights.dart';
 import 'package:my_flight_booking_app/presentation/flight/page/flight_search.dart';
 import 'package:my_flight_booking_app/presentation/home/widget/option_card.dart';
 import 'package:my_flight_booking_app/utils/color_manager.dart';
@@ -106,7 +107,17 @@ class LandingScreen extends StatelessWidget {
                 title: 'My Bookings',
                 subtitle: 'View your booked flights',
                 color: ColorManager.secondary.withOpacity(0.8),
-                onTap: () {},
+                onTap: () {
+                  BlocProvider.of<FlightBloc>(
+                    context,
+                  ).add(MyBookedFlightsEvent());
+
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => MyBookedFlightsScreen(),
+                    ),
+                  );
+                },
               ),
             ],
           ),

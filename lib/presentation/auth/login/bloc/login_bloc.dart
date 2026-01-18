@@ -6,6 +6,8 @@ import 'package:my_flight_booking_app/core/error/api_failures.dart';
 import 'package:my_flight_booking_app/core/error/failure_handler.dart';
 import 'package:my_flight_booking_app/presentation/auth/auth_data_layer.dart';
 import 'package:my_flight_booking_app/presentation/auth/auth_repository.dart';
+import 'package:my_flight_booking_app/use_case/flight_storage_helper.dart';
+import 'package:my_flight_booking_app/use_case/message_storage_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'login_event.dart';
@@ -60,11 +62,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
 
     on<OnLogoutEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+
       await FirebaseAuth.instance.signOut();
       final prefs = await SharedPreferences.getInstance();
       await prefs.remove('user_id');
 
-      emit(state.copyWith(isLoggedIn: false));
+      await FlightStorageHelper().clearAllFlights();
+      await MessageStorageHelper().clearAllMessgaes();
+      emit(state.copyWith(isLoggedIn: false, isLoading: false));
     });
   }
 }

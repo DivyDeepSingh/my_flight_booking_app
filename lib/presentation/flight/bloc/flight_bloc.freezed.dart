@@ -31,11 +31,13 @@ mixin _$FlightState {
       throw _privateConstructorUsedError; // Selected date for flight search
   List<FlightModel>? get searchResults =>
       throw _privateConstructorUsedError; // Flight search results
-  String? get fromCityError =>
-      throw _privateConstructorUsedError; // Error message for "From" city search
-  String? get toCityError =>
-      throw _privateConstructorUsedError; // Error message for "To" city search
+  List<FlightModel>? get myBookedFlights =>
+      throw _privateConstructorUsedError; // Flight search results
+  bool get isBookingSuccessful => throw _privateConstructorUsedError;
+  String? get fromCityError => throw _privateConstructorUsedError;
+  String? get toCityError => throw _privateConstructorUsedError;
   String? get searchError => throw _privateConstructorUsedError;
+  String? get bookingError => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlightStateCopyWith<FlightState> get copyWith =>
@@ -57,9 +59,12 @@ abstract class $FlightStateCopyWith<$Res> {
       CityModel? selectedToCity,
       DateTime? selectedDate,
       List<FlightModel>? searchResults,
+      List<FlightModel>? myBookedFlights,
+      bool isBookingSuccessful,
       String? fromCityError,
       String? toCityError,
-      String? searchError});
+      String? searchError,
+      String? bookingError});
 }
 
 /// @nodoc
@@ -83,9 +88,12 @@ class _$FlightStateCopyWithImpl<$Res, $Val extends FlightState>
     Object? selectedToCity = freezed,
     Object? selectedDate = freezed,
     Object? searchResults = freezed,
+    Object? myBookedFlights = freezed,
+    Object? isBookingSuccessful = null,
     Object? fromCityError = freezed,
     Object? toCityError = freezed,
     Object? searchError = freezed,
+    Object? bookingError = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -120,6 +128,14 @@ class _$FlightStateCopyWithImpl<$Res, $Val extends FlightState>
           ? _value.searchResults
           : searchResults // ignore: cast_nullable_to_non_nullable
               as List<FlightModel>?,
+      myBookedFlights: freezed == myBookedFlights
+          ? _value.myBookedFlights
+          : myBookedFlights // ignore: cast_nullable_to_non_nullable
+              as List<FlightModel>?,
+      isBookingSuccessful: null == isBookingSuccessful
+          ? _value.isBookingSuccessful
+          : isBookingSuccessful // ignore: cast_nullable_to_non_nullable
+              as bool,
       fromCityError: freezed == fromCityError
           ? _value.fromCityError
           : fromCityError // ignore: cast_nullable_to_non_nullable
@@ -131,6 +147,10 @@ class _$FlightStateCopyWithImpl<$Res, $Val extends FlightState>
       searchError: freezed == searchError
           ? _value.searchError
           : searchError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bookingError: freezed == bookingError
+          ? _value.bookingError
+          : bookingError // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -153,9 +173,12 @@ abstract class _$$FlightStateImplCopyWith<$Res>
       CityModel? selectedToCity,
       DateTime? selectedDate,
       List<FlightModel>? searchResults,
+      List<FlightModel>? myBookedFlights,
+      bool isBookingSuccessful,
       String? fromCityError,
       String? toCityError,
-      String? searchError});
+      String? searchError,
+      String? bookingError});
 }
 
 /// @nodoc
@@ -177,9 +200,12 @@ class __$$FlightStateImplCopyWithImpl<$Res>
     Object? selectedToCity = freezed,
     Object? selectedDate = freezed,
     Object? searchResults = freezed,
+    Object? myBookedFlights = freezed,
+    Object? isBookingSuccessful = null,
     Object? fromCityError = freezed,
     Object? toCityError = freezed,
     Object? searchError = freezed,
+    Object? bookingError = freezed,
   }) {
     return _then(_$FlightStateImpl(
       isLoading: null == isLoading
@@ -214,6 +240,14 @@ class __$$FlightStateImplCopyWithImpl<$Res>
           ? _value._searchResults
           : searchResults // ignore: cast_nullable_to_non_nullable
               as List<FlightModel>?,
+      myBookedFlights: freezed == myBookedFlights
+          ? _value._myBookedFlights
+          : myBookedFlights // ignore: cast_nullable_to_non_nullable
+              as List<FlightModel>?,
+      isBookingSuccessful: null == isBookingSuccessful
+          ? _value.isBookingSuccessful
+          : isBookingSuccessful // ignore: cast_nullable_to_non_nullable
+              as bool,
       fromCityError: freezed == fromCityError
           ? _value.fromCityError
           : fromCityError // ignore: cast_nullable_to_non_nullable
@@ -225,6 +259,10 @@ class __$$FlightStateImplCopyWithImpl<$Res>
       searchError: freezed == searchError
           ? _value.searchError
           : searchError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bookingError: freezed == bookingError
+          ? _value.bookingError
+          : bookingError // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -242,13 +280,17 @@ class _$FlightStateImpl implements _FlightState {
       this.selectedToCity,
       this.selectedDate,
       final List<FlightModel>? searchResults,
+      final List<FlightModel>? myBookedFlights,
+      required this.isBookingSuccessful,
       this.fromCityError,
       this.toCityError,
-      this.searchError})
+      this.searchError,
+      this.bookingError})
       : _allCities = allCities,
         _filteredFromCities = filteredFromCities,
         _filteredToCities = filteredToCities,
-        _searchResults = searchResults;
+        _searchResults = searchResults,
+        _myBookedFlights = myBookedFlights;
 
   @override
   final bool isLoading;
@@ -312,18 +354,32 @@ class _$FlightStateImpl implements _FlightState {
   }
 
 // Flight search results
+  final List<FlightModel>? _myBookedFlights;
+// Flight search results
+  @override
+  List<FlightModel>? get myBookedFlights {
+    final value = _myBookedFlights;
+    if (value == null) return null;
+    if (_myBookedFlights is EqualUnmodifiableListView) return _myBookedFlights;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+// Flight search results
+  @override
+  final bool isBookingSuccessful;
   @override
   final String? fromCityError;
-// Error message for "From" city search
   @override
   final String? toCityError;
-// Error message for "To" city search
   @override
   final String? searchError;
+  @override
+  final String? bookingError;
 
   @override
   String toString() {
-    return 'FlightState(isLoading: $isLoading, allCities: $allCities, filteredFromCities: $filteredFromCities, filteredToCities: $filteredToCities, selectedFromCity: $selectedFromCity, selectedToCity: $selectedToCity, selectedDate: $selectedDate, searchResults: $searchResults, fromCityError: $fromCityError, toCityError: $toCityError, searchError: $searchError)';
+    return 'FlightState(isLoading: $isLoading, allCities: $allCities, filteredFromCities: $filteredFromCities, filteredToCities: $filteredToCities, selectedFromCity: $selectedFromCity, selectedToCity: $selectedToCity, selectedDate: $selectedDate, searchResults: $searchResults, myBookedFlights: $myBookedFlights, isBookingSuccessful: $isBookingSuccessful, fromCityError: $fromCityError, toCityError: $toCityError, searchError: $searchError, bookingError: $bookingError)';
   }
 
   @override
@@ -347,12 +403,18 @@ class _$FlightStateImpl implements _FlightState {
                 other.selectedDate == selectedDate) &&
             const DeepCollectionEquality()
                 .equals(other._searchResults, _searchResults) &&
+            const DeepCollectionEquality()
+                .equals(other._myBookedFlights, _myBookedFlights) &&
+            (identical(other.isBookingSuccessful, isBookingSuccessful) ||
+                other.isBookingSuccessful == isBookingSuccessful) &&
             (identical(other.fromCityError, fromCityError) ||
                 other.fromCityError == fromCityError) &&
             (identical(other.toCityError, toCityError) ||
                 other.toCityError == toCityError) &&
             (identical(other.searchError, searchError) ||
-                other.searchError == searchError));
+                other.searchError == searchError) &&
+            (identical(other.bookingError, bookingError) ||
+                other.bookingError == bookingError));
   }
 
   @override
@@ -366,9 +428,12 @@ class _$FlightStateImpl implements _FlightState {
       selectedToCity,
       selectedDate,
       const DeepCollectionEquality().hash(_searchResults),
+      const DeepCollectionEquality().hash(_myBookedFlights),
+      isBookingSuccessful,
       fromCityError,
       toCityError,
-      searchError);
+      searchError,
+      bookingError);
 
   @JsonKey(ignore: true)
   @override
@@ -387,9 +452,12 @@ abstract class _FlightState implements FlightState {
       final CityModel? selectedToCity,
       final DateTime? selectedDate,
       final List<FlightModel>? searchResults,
+      final List<FlightModel>? myBookedFlights,
+      required final bool isBookingSuccessful,
       final String? fromCityError,
       final String? toCityError,
-      final String? searchError}) = _$FlightStateImpl;
+      final String? searchError,
+      final String? bookingError}) = _$FlightStateImpl;
 
   @override
   bool get isLoading;
@@ -408,11 +476,17 @@ abstract class _FlightState implements FlightState {
   @override // Selected date for flight search
   List<FlightModel>? get searchResults;
   @override // Flight search results
+  List<FlightModel>? get myBookedFlights;
+  @override // Flight search results
+  bool get isBookingSuccessful;
+  @override
   String? get fromCityError;
-  @override // Error message for "From" city search
+  @override
   String? get toCityError;
-  @override // Error message for "To" city search
+  @override
   String? get searchError;
+  @override
+  String? get bookingError;
   @override
   @JsonKey(ignore: true)
   _$$FlightStateImplCopyWith<_$FlightStateImpl> get copyWith =>

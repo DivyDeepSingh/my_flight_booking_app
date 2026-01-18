@@ -6,6 +6,7 @@ import 'package:my_flight_booking_app/models/flight/cities_model.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/input_textfield.dart';
 import 'package:my_flight_booking_app/presentation/flight/bloc/flight_bloc.dart';
 import 'package:my_flight_booking_app/presentation/flight/flight_data_layer.dart';
+import 'package:my_flight_booking_app/presentation/flight/page/flight_booking/flight_booking.dart';
 import 'package:my_flight_booking_app/presentation/flight/page/widget/flight_card.dart';
 import 'package:my_flight_booking_app/presentation/flight/page/widget/select_city.dart';
 import 'package:my_flight_booking_app/use_case/common_functions.dart';
@@ -332,11 +333,24 @@ class _FlightSearchScreenState extends State<FlightSearchScreen> {
                                 itemCount: state.searchResults!.length,
                                 itemBuilder: (context, index) {
                                   final flight = state.searchResults![index];
-                                  return Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 8,
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return FlightBookingScreen(
+                                              flight: flight,
+                                            );
+                                          },
+                                        ),
+                                      );
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 8,
+                                      ),
+                                      child: FlightCard(flight: flight),
                                     ),
-                                    child: FlightCard(flight: flight),
                                   );
                                 },
                               )

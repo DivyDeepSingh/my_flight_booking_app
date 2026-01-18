@@ -18,6 +18,11 @@ class MessageStorageHelper {
     await box.add(message);
   }
 
+  Future<void> clearAllMessgaes() async {
+    final box = await Hive.openBox<MessageModel>('messagesBox');
+    await box.clear();
+  }
+
   Future<List<MessageModel>> getMessagesByGroupId(String groupId) async {
     final box = await Hive.openBox<MessageModel>('messagesBox');
     return box.values.where((msg) => msg.groupId == groupId).toList();
