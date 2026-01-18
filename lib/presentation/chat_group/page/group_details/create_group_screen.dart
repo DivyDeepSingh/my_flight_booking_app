@@ -84,9 +84,7 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                     }
 
                     return ListView.separated(
-                      itemCount: state.users
-                          .where((element) => element.id != state.currentUserId)
-                          .length,
+                      itemCount: state.users.length,
                       separatorBuilder: (_, __) => SizedBox(height: 12.h),
                       itemBuilder: (context, index) {
                         final user = state.users[index];
@@ -94,10 +92,12 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                           user.id,
                         );
 
-                        return UserCardWithSelection(
-                          isSelected: isSelected,
-                          user: user,
-                        );
+                        return user.id != state.currentUserId
+                            ? UserCardWithSelection(
+                                isSelected: isSelected,
+                                user: user,
+                              )
+                            : SizedBox();
                       },
                     );
                   },

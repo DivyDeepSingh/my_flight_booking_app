@@ -62,6 +62,14 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
+            builder: (context, child) {
+              return GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                },
+                child: child,
+              );
+            },
             home: LoginScreen(),
           ),
         );

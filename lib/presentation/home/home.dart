@@ -24,6 +24,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: GroupsListing());
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () => _logout(context),
+
+            icon: Icon(Icons.logout),
+          ),
+        ],
+      ),
+      body: GroupsListing(),
+    );
   }
 }
