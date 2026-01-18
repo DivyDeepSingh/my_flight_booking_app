@@ -132,7 +132,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.05),
+                                    color: ColorManager.black.withOpacity(0.05),
                                     blurRadius: 4,
                                   ),
                                 ],
@@ -159,7 +159,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                     style: TextStyle(
                                       fontSize: 15.sp,
                                       color: isMe
-                                          ? Colors.white
+                                          ? ColorManager.white
                                           : ColorManager.black,
                                     ),
                                   ),
@@ -172,8 +172,8 @@ class _ChatScreenState extends State<ChatScreen> {
                                     style: TextStyle(
                                       fontSize: 10.sp,
                                       color: isMe
-                                          ? Colors.white70
-                                          : Colors.grey,
+                                          ? ColorManager.white
+                                          : ColorManager.grey,
                                     ),
                                   ),
                                 ],

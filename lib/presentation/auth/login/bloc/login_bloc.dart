@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -5,7 +6,7 @@ import 'package:my_flight_booking_app/core/error/api_failures.dart';
 import 'package:my_flight_booking_app/core/error/failure_handler.dart';
 import 'package:my_flight_booking_app/presentation/auth/auth_data_layer.dart';
 import 'package:my_flight_booking_app/presentation/auth/auth_repository.dart';
-import 'package:my_flight_booking_app/presentation/home/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -56,6 +57,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     // Toggle password visibility
     on<OnTogglePasswordVisibilityEvent>((event, emit) {
       emit(state.copyWith(obscurePassword: !state.obscurePassword));
+    });
+
+    on<OnLogoutEvent>((event, emit) async {
+      await FirebaseAuth.instance.signOut();
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('user_id');
+
+      emit(state.copyWith(isLoggedIn: false));
     });
   }
 }

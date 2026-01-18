@@ -72,11 +72,14 @@ class _GroupsListingState extends State<GroupsListing> {
                     ),
                   )
                 else if (state.groups.isEmpty)
-                  const Expanded(
+                  Expanded(
                     child: Center(
                       child: Text(
                         'No groups available, create a new one!',
-                        style: TextStyle(fontSize: 16, color: Colors.black54),
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          color: ColorManager.black,
+                        ),
                       ),
                     ),
                   )

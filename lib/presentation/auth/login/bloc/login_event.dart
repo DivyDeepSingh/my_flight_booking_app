@@ -25,3 +25,10 @@ class OnTogglePasswordVisibilityEvent extends LoginEvent {
   // TODO: implement props
   List<Object?> get props => [];
 }
+
+class OnLogoutEvent extends LoginEvent {
+  OnLogoutEvent();
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}

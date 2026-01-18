@@ -7,7 +7,7 @@ import 'package:my_flight_booking_app/presentation/auth/registration/bloc/regist
 import 'package:my_flight_booking_app/presentation/auth/widget/input_textfield.dart';
 import 'package:my_flight_booking_app/presentation/auth/widget/password_textfield.dart';
 import 'package:my_flight_booking_app/presentation/chat_group/bloc/chat_group_bloc.dart';
-import 'package:my_flight_booking_app/presentation/home/home.dart';
+import 'package:my_flight_booking_app/presentation/home/landing_screen.dart';
 import 'package:my_flight_booking_app/utils/color_manager.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -50,7 +50,7 @@ class RegistrationScreen extends StatelessWidget {
             );
 
             Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => HomeScreen()),
+              MaterialPageRoute(builder: (context) => LandingScreen()),
               (route) => false,
             );
           }

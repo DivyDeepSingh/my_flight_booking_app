@@ -27,7 +27,7 @@ class UserCardWithSelection extends StatelessWidget {
           : ColorManager.white,
       shadowColor: isSelected
           ? ColorManager.primary.withOpacity(0.2)
-          : Colors.grey.withOpacity(0.3),
+          : ColorManager.grey.withOpacity(0.3),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         leading: CircleAvatar(
@@ -54,7 +54,7 @@ class UserCardWithSelection extends StatelessWidget {
             ? Checkbox(
                 value: isSelected,
                 activeColor: ColorManager.primary,
-                checkColor: Colors.white, // For white check marks
+                checkColor: ColorManager.white, // For white check marks
                 onChanged: (_) {
                   BlocProvider.of<ChatGroupBloc>(
                     context,

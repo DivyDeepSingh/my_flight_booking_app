@@ -14,7 +14,10 @@ import 'package:my_flight_booking_app/presentation/auth/registration/registratio
 import 'package:my_flight_booking_app/presentation/chat_group/bloc/chat_group_bloc.dart';
 import 'package:my_flight_booking_app/presentation/chat_group/chat_group_data_layer.dart';
 import 'package:my_flight_booking_app/presentation/chat_group/chat_group_repository.dart';
+import 'package:my_flight_booking_app/presentation/flight/bloc/flight_bloc.dart';
+import 'package:my_flight_booking_app/presentation/flight/flight_data_layer.dart';
 import 'package:my_flight_booking_app/use_case/message_storage_helper.dart';
+import 'package:my_flight_booking_app/utils/color_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Initialize Hive
@@ -54,12 +57,18 @@ class MyApp extends StatelessWidget {
                 messageStorageHelper: MessageStorageHelper(),
               ),
             ),
+
+            BlocProvider<FlightBloc>(
+              create: (context) => FlightBloc(dataLayer: FlightDataLayer()),
+            ),
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'My Flight Booking App',
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: ColorManager.tertiary,
+              ),
               useMaterial3: true,
             ),
             builder: (context, child) {

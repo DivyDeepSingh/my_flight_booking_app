@@ -52,11 +52,11 @@ class PasswordTextfield extends StatelessWidget {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colors.red, width: 1.5),
+          borderSide: BorderSide(color: ColorManager.error, width: 1.5),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colors.red, width: 2),
+          borderSide: BorderSide(color: ColorManager.error, width: 2),
         ),
 
         prefixIcon: Icon(Icons.lock, color: ColorManager.primary),

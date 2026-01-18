@@ -9,4 +9,8 @@ class ColorManager {
   static Color blackLight = Colors.black54; // Secondary text
   static Color error = Colors.redAccent; // For error messages
   static Color background = Colors.blue.shade50; // Screen background
+
+  static Color secondary = const Color.fromARGB(255, 71, 58, 216);
+  static Color tertiary = const Color(0xFF8E24AA);
+  static Color neutral = const Color(0xFF607D8B);
 }

@@ -10,11 +10,12 @@ class InputTextfield extends StatelessWidget {
   final TextInputType keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
-
+  final Function(String value)? onChange;
   const InputTextfield({
     required this.controller,
     required this.label,
     required this.icon,
+    this.onChange,
     this.keyboardType = TextInputType.text,
     this.inputFormatters,
     this.validator,
@@ -27,12 +28,16 @@ class InputTextfield extends StatelessWidget {
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
       validator: validator,
+
+      onChanged: onChange,
+
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon, color: ColorManager.primary),
         filled: true,
         fillColor: ColorManager.white,
         contentPadding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 16.w),
+
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
           borderSide: BorderSide(
@@ -56,11 +61,11 @@ class InputTextfield extends StatelessWidget {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colors.red, width: 1.5),
+          borderSide: BorderSide(color: ColorManager.error, width: 1.5),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colors.red, width: 2),
+          borderSide: BorderSide(color: ColorManager.error, width: 2),
         ),
       ),
     );

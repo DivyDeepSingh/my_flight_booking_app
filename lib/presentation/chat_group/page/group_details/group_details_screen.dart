@@ -33,7 +33,7 @@ class GroupDetailsScreen extends StatelessWidget {
 
             Text(
               'Created by: ${context.read<ChatGroupBloc>().state.users.where((element) => element.id == groupModel.ownerId).first.name}',
-              style: TextStyle(fontSize: 14.sp, color: Colors.grey),
+              style: TextStyle(fontSize: 14.sp, color: ColorManager.grey),
             ),
 
             SizedBox(height: 20.h),
